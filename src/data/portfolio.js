@@ -57,6 +57,7 @@ export const PROJECTS = [
   {
     id: "bluebottlecap",
     title: "BlueBottleCap",
+    link: "https://bluebottlecap.com",
     subtitle: "AI SaaS for engineering aspirants",
     tag: "FOUNDER · LIVE",
     span: "lg:col-span-7 lg:row-span-2",
@@ -70,6 +71,7 @@ export const PROJECTS = [
   {
     id: "underwater",
     title: "Underwater Imaging",
+    link: "https://github.com/divyanshus2404",
     subtitle: "CV pipeline for robotics",
     tag: "INDUSTRY",
     span: "lg:col-span-5",
@@ -83,6 +85,7 @@ export const PROJECTS = [
   {
     id: "oath",
     title: "OaTH",
+    link: "https://github.com/divyanshus2404",
     subtitle: "Promise tracking & accountability",
     tag: "MVP SHIPPED",
     span: "lg:col-span-5",
@@ -96,6 +99,7 @@ export const PROJECTS = [
   {
     id: "sports_sync",
     title: "Sports Sync",
+    link: "https://github.com/divyanshus2404/Sports-Sync",
     subtitle: "Campus sports connector",
     tag: "TEAM LEAD",
     span: "lg:col-span-7",

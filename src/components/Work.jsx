@@ -28,13 +28,16 @@ export default function Work() {
       {/* Bento grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-6" data-testid="projects-grid">
         {PROJECTS.map((p, idx) => (
-          <motion.article
+          <motion.a
+            href={p.link || "#"}
+            target="_blank"
+            rel="noopener noreferrer"
             key={p.id}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.7, delay: idx * 0.08 }}
-            className={`group relative border border-[#0d0d0d] bg-white overflow-hidden ${p.span}`}
+            className={`group relative border border-[#0d0d0d] bg-white overflow-hidden block ${p.span}`}
             data-testid={`project-${p.id}`}
           >
             <div className="relative aspect-[16/10] overflow-hidden border-b border-[#0d0d0d] bg-[#f4f4f0]">
@@ -81,7 +84,7 @@ export default function Work() {
                 ))}
               </div>
             </div>
-          </motion.article>
+          </motion.a>
         ))}
       </div>
     </section>
