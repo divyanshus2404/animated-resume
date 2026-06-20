@@ -7,7 +7,7 @@ import { PROFILE } from "../data/portfolio";
 const SOCIALS = [
   { label: "Email", href: `mailto:${PROFILE.email}`, icon: Mail, value: PROFILE.email },
   { label: "GitHub", href: PROFILE.github, icon: Github, value: "@divyanshus2404" },
-  { label: "LinkedIn", href: PROFILE.linkedin, icon: Linkedin, value: "/in/divyanshu-singh" },
+  { label: "LinkedIn", href: PROFILE.linkedin, icon: Linkedin, value: "/in/divyanshu-singh-2404s" },
 ];
 
 export default function Contact() {

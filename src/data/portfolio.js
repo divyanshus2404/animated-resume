@@ -7,7 +7,7 @@ export const PROFILE = {
   email: "divyanshus2404@gmail.com",
   phone: "+91 9761601093",
   location: "Noida / Greater Noida, India",
-  linkedin: "https://www.linkedin.com/in/divyanshu-singh",
+  linkedin: "https://www.linkedin.com/in/divyanshu-singh-2404s/",
   github: "https://github.com/divyanshus2404",
   resumeUrl: "https://customer-assets.emergentagent.com/job_baab3931-fc97-4787-a75c-677ea9a31666/artifacts/k05quqdo_Divyanshu_Singh_Resume_AI_v15.docx",
   tagline:
