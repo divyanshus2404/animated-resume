@@ -47,7 +47,7 @@ export default function Hero() {
       >
         <div className="col-span-12 lg:col-span-9">
           <motion.div variants={item} className="section-label mb-8">
-            AI Full-Stack Developer & Founder
+            Software Engineer — AI & Full-Stack
           </motion.div>
 
           <motion.h1
@@ -62,7 +62,7 @@ export default function Hero() {
           >
             Singh
             <span className="font-serif italic text-[#ff2a00] text-[8vw] md:text-[5vw] lg:text-7xl translate-y-2">
-              /b<span className="not-italic">u</span>ilder
+              /e<span className="not-italic">n</span>gineer
             </span>
           </motion.h1>
         </div>

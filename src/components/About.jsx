@@ -27,15 +27,15 @@ export default function About() {
           className="col-span-12 lg:col-span-7"
         >
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tighter mb-10">
-            I build <span className="font-serif italic text-[#0033a0]">AI-integrated</span> products
-            that ship — from prototype to paying users.
+            I build <span className="font-serif italic text-[#0033a0]">AI-integrated</span> software solutions
+            — from prototype to production.
           </h2>
 
           <div className="space-y-5 font-mono text-sm md:text-base leading-relaxed text-[#0d0d0d] max-w-2xl">
             <p>
-              Recent B.Tech CSE graduate from Bennett University. I&apos;ve shipped a live AI SaaS
-              platform that hit ₹10K+ in revenue within weeks, a computer-vision pipeline for
-              underwater robotics, and a couple of mobile MVPs along the way.
+              Recent B.Tech CSE graduate from Bennett University. I&apos;ve engineered a comprehensive AI platform
+              for educational applications, developed computer-vision pipelines for underwater robotics, and
+              built full-stack mobile applications.
             </p>
             <p>
               I&apos;m comfortable across the stack — React frontends, model-serving APIs, Postgres,

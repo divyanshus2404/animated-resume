@@ -2,8 +2,8 @@ export const PROFILE = {
   name: "Divyanshu Singh",
   firstName: "Divyanshu",
   lastName: "Singh",
-  role: "AI Full-Stack Developer",
-  alt: "Founder · Builder · Engineer",
+  role: "Software Engineer | AI Domain",
+  alt: "Software Engineer · Problem Solver · AI Enthusiast",
   email: "divyanshus2404@gmail.com",
   phone: "+91 9761601093",
   location: "Noida / Greater Noida, India",
@@ -11,14 +11,14 @@ export const PROFILE = {
   github: "https://github.com/divyanshus2404",
   resumeUrl: "https://customer-assets.emergentagent.com/job_baab3931-fc97-4787-a75c-677ea9a31666/artifacts/k05quqdo_Divyanshu_Singh_Resume_AI_v15.docx",
   tagline:
-    "I ship AI-integrated products from zero to production — full-stack systems, computer vision pipelines, LLM-powered apps. Things that actually work.",
-  available: "Available for full-time roles · Founding engineer / SWE",
+    "Recent B.Tech CSE graduate with a focus on Artificial Intelligence. I engineer scalable full-stack systems, computer vision pipelines, and LLM-powered applications.",
+  available: "Seeking full-time Software Engineering roles in the AI domain",
   portrait:
     "/avatar.jpg",
 };
 
 export const STATS = [
-  { k: "₹10K+", v: "Revenue in weeks of MVP" },
+  { k: "7.76", v: "CGPA (B.Tech CSE)" },
   { k: "30%", v: "Imaging clarity gain" },
   { k: "4+", v: "Production projects shipped" },
   { k: "#1", v: "Trending OSS contribution" },
@@ -27,14 +27,14 @@ export const STATS = [
 export const EXPERIENCE = [
   {
     company: "BlueBottleCap",
-    role: "Founder & Developer",
+    role: "Lead Developer (Personal Project)",
     period: "Jan 2026 — Present",
     location: "Remote",
     href: "#",
     bullets: [
-      "Conceived and solo-built an AI SaaS for Indian engineering students — JEE Question Generator, PYQ Analyser, Study Planner powered by Gemini + Anthropic APIs.",
-      "Generated ₹10,000+ within weeks of MVP launch (Apr 2026), demonstrating early product-market fit.",
-      "Shipped production stack: OTP auth, Razorpay freemium tiers, ₹99 digital product with automated post-payment delivery via Supabase + Netlify.",
+      "Engineered an end-to-end AI platform for engineering students featuring a JEE Question Generator, PYQ Analyser, and Study Planner powered by Gemini and Anthropic APIs.",
+      "Architected a scalable full-stack solution utilizing Next.js, integrating OTP authentication, automated deployment via Netlify, and secure data handling with Supabase.",
+      "Optimized LLM prompts and API calls to reduce latency and improve the accuracy of technical educational content generation.",
     ],
     stack: ["Next.js", "Gemini", "Anthropic", "Supabase", "Razorpay", "Netlify"],
   },
@@ -58,13 +58,13 @@ export const PROJECTS = [
     id: "bluebottlecap",
     title: "BlueBottleCap",
     link: "https://bluebottlecap.com",
-    subtitle: "AI SaaS for engineering aspirants",
-    tag: "FOUNDER · LIVE",
+    subtitle: "AI platform for engineering aspirants",
+    tag: "FULL-STACK · AI",
     span: "lg:col-span-7 lg:row-span-2",
     image:
       "/bluebottlecap.png",
     description:
-      "JEE Question Generator, PYQ Analyser, Study Planner. Gemini + Anthropic under the hood. Razorpay freemium. Real revenue, real users.",
+      "JEE Question Generator, PYQ Analyser, Study Planner. Gemini + Anthropic under the hood. End-to-end scalable architecture.",
     stack: ["Next.js", "Gemini", "Anthropic", "Supabase", "Razorpay"],
     year: "2026",
   },

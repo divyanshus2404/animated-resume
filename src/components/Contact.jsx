@@ -32,8 +32,8 @@ export default function Contact() {
               <span className="font-serif italic text-[#0033a0]">something.</span>
             </h2>
             <p className="font-mono text-base md:text-lg leading-relaxed text-[#0d0d0d] mt-10 max-w-xl">
-              Open to founding-engineer and SWE roles. If you&apos;re building something
-              ambitious in AI, robotics or consumer SaaS — let&apos;s talk.
+              Recent graduate actively seeking Software Engineering and AI roles. If your team is
+              building something ambitious and needs a driven engineer — let&apos;s talk.
             </p>
 
             <div className="flex flex-wrap gap-4 mt-10">
