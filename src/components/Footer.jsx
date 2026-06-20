@@ -10,7 +10,7 @@ export default function Footer() {
         © {new Date().getFullYear()} {PROFILE.name} — All rights reserved
       </div>
       <div className="font-mono text-[11px] tracking-[0.25em] uppercase text-[#595959]">
-        Designed & built in Noida · Hosted on Netlify
+        Designed & built in Noida · Hosted on Vercel
       </div>
     </footer>
   );
