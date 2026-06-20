@@ -61,7 +61,7 @@ export const PROJECTS = [
     tag: "FOUNDER · LIVE",
     span: "lg:col-span-7 lg:row-span-2",
     image:
-      "https://images.pexels.com/photos/30530402/pexels-photo-30530402.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "/bluebottlecap.png",
     description:
       "JEE Question Generator, PYQ Analyser, Study Planner. Gemini + Anthropic under the hood. Razorpay freemium. Real revenue, real users.",
     stack: ["Next.js", "Gemini", "Anthropic", "Supabase", "Razorpay"],
@@ -87,7 +87,7 @@ export const PROJECTS = [
     tag: "MVP SHIPPED",
     span: "lg:col-span-5",
     image:
-      "https://images.unsplash.com/photo-1720962158883-b0f2021fb51e?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
+      "/oath.png",
     description:
       "Cross-platform Flutter app — streak logic, completion tracking, smart reminders. Frictionless emotional UX.",
     stack: ["Flutter", "Firebase", "Cloud Functions"],
@@ -100,7 +100,7 @@ export const PROJECTS = [
     tag: "TEAM LEAD",
     span: "lg:col-span-7",
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
+      "/sports-sync.png",
     description:
       "Led 3-member team at Bennett — open-player requests, real-time DB, push notifications, iOS + Android.",
     stack: ["Flutter", "Firebase", "Node.js"],
