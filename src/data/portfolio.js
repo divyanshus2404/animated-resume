@@ -112,6 +112,48 @@ export const PROJECTS = [
   },
 ];
 
+export const MOTION_STUDIES = [
+  {
+    id: "pay_in_3",
+    title: "Pay in 3, in motion",
+    link: "/work/pay-in-3/",
+    subtitle: "BNPL checkout micro-interactions",
+    tag: "MOTION STUDY",
+    span: "lg:col-span-4",
+    image: "/pay-in-3.png",
+    description:
+      "Plan switcher, price split, morphing pay button and instalment tracker, each live and specced with durations and easing for dev handoff.",
+    stack: ["Interaction Design", "CSS Motion", "JavaScript"],
+    year: "2026",
+  },
+  {
+    id: "limit_reveal",
+    title: "Your limit, revealed",
+    link: "/work/limit-reveal/",
+    subtitle: "Credit onboarding motion",
+    tag: "MOTION STUDY",
+    span: "lg:col-span-4",
+    image: "/limit-reveal.png",
+    description:
+      "KYC step progress, a limit ring that counts up, a card that tilts as you move, and skeleton loading for the decision wait.",
+    stack: ["SVG Animation", "Pointer Events", "UX"],
+    year: "2026",
+  },
+  {
+    id: "observed",
+    title: "Small moments, observed",
+    link: "/work/observed/",
+    subtitle: "Everyday objects → interactions",
+    tag: "INTERACTION STUDY",
+    span: "lg:col-span-4",
+    image: "/observed.png",
+    description:
+      "Swipe-to-pay like a shop shutter, a head-shake for a wrong OTP, a reminder you push aside, and a gullak that fills as you pay on time.",
+    stack: ["Gestures", "Micro-interactions", "Accessibility"],
+    year: "2026",
+  },
+];
+
 export const SKILL_GROUPS = [
   {
     label: "LANGUAGES",

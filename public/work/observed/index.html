@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Small moments, observed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: a field notebook: everyday Indian objects turned into payment interactions.
+   IDEA: an observation sketchbook: each page pairs a thing seen in the street with the interaction it inspired.
+   PICTURE: a large working swipe-to-pay slider, built like a sliding shop shutter.
+   COLOUR and TYPE: auto-rickshaw yellow field, black ink, white pages; Space Grotesk.
+   LAYOUT: yellow hero with the big slider, then three observed-to-designed pages. */
+:root{color-scheme:light dark;--y:#ffd23f;--bg:light-dark(#fff8df,#17150c);--ink:light-dark(#121212,#f4efe0);--card:light-dark(#fff,#211e12);--line:light-dark(#e6dcb8,#353020);--mute:light-dark(#5c5641,#aaa38b);--ok:light-dark(#0f8a4b,#3ddc84);--bad:#e0322b;--spring:cubic-bezier(.34,1.56,.64,1);--out:cubic-bezier(.22,1,.36,1)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Space Grotesk",system-ui,sans-serif;overflow-x:clip}
+.band{padding:clamp(28px,4vw,64px) max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+.top{background:var(--y);color:#121212}
+h1{font-size:clamp(36px,5vw,52px);line-height:1.05;margin:0 0 16px;font-weight:700;text-wrap:balance;letter-spacing:-.02em}
+h2{font-size:22px;line-height:1.2;margin:0 0 6px;font-weight:700}
+p{margin:0 0 12px;max-width:62ch}
+.small{font-size:13px;color:var(--mute)}.top .small{color:#4a4020}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,5vw,72px);align-items:center}
+.meta{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:16px;font-size:14px}.meta a{color:#121212}
+.btn{font:inherit;font-weight:600;min-height:44px;padding:0 18px;border-radius:12px;border:1.5px solid var(--ink);background:var(--card);color:var(--ink);cursor:pointer;transition:transform .15s var(--out)}
+.btn:active{transform:scale(.96)}.btn:focus-visible,.thumb:focus-visible,.otp input:focus-visible{outline:3px solid #121212;outline-offset:3px}
+/* swipe */
+.swbox{background:#121212;border-radius:28px;padding:28px;color:#fff;box-shadow:0 30px 50px -24px rgba(0,0,0,.5)}
+.amt{font-size:clamp(34px,5vw,48px);font-weight:700;white-space:nowrap}
+.track{position:relative;height:72px;border-radius:36px;background:#2a2a2a;margin-top:22px;overflow:hidden;touch-action:none;user-select:none}
+.track .fillx{position:absolute;inset:0 auto 0 0;width:72px;background:repeating-linear-gradient(90deg,#ffd23f 0 10px,#f2c21f 10px 12px);border-radius:36px}
+.track .hint{position:absolute;inset:0;display:grid;place-items:center;font-weight:600;color:#bbb;letter-spacing:.01em;pointer-events:none;transition:opacity .2s}
+.thumb{position:absolute;top:6px;left:6px;width:60px;height:60px;border-radius:50%;background:#fff;display:grid;place-items:center;cursor:grab;border:0;box-shadow:0 4px 10px rgba(0,0,0,.35)}
+.thumb:active{cursor:grabbing}
+.track.snap .thumb,.track.snap .fillx{transition:transform .5s var(--spring),width .5s var(--spring)}
+.track.ok .fillx{background:var(--ok)}.track.ok .hint{opacity:1;color:#fff}
+/* pages */
+.pages{display:grid;gap:22px;margin-top:28px}
+.page{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:22px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px}
+.obs{border-right:1.5px dashed var(--line);padding-right:22px}
+.obs .tag{display:inline-block;font-size:13px;font-weight:600;background:var(--y);color:#121212;border-radius:8px;padding:2px 10px;margin-bottom:10px}
+.demo{background:var(--bg);border-radius:14px;min-height:200px;display:grid;place-items:center;padding:20px;margin-bottom:14px}
+dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0;font-size:14px}dt{color:var(--mute)}dd{margin:0}
+.otp{display:flex;gap:10px}
+.otp input{width:52px;height:60px;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:24px;font-weight:700;text-align:center;transition:border-color .2s}
+.otp.bad{animation:shake .42s var(--out)}.otp.bad input{border-color:var(--bad)}.otp.good input{border-color:var(--ok)}
+@keyframes shake{15%{transform:translateX(-10px)}35%{transform:translateX(9px)}55%{transform:translateX(-6px)}75%{transform:translateX(3px)}100%{transform:none}}
+.rem{width:min(100%,320px);position:relative;height:96px}
+.rc{position:absolute;inset:0;background:var(--card);border:1.5px solid var(--ink);border-radius:16px;padding:14px 16px;touch-action:pan-y;cursor:grab;user-select:none;box-shadow:4px 4px 0 var(--ink)}
+.rc b{display:block}.rc span{font-size:14px;color:var(--mute)}
+.rc.fly{transition:transform .35s var(--out),opacity .35s}.rc.back{transition:transform .45s var(--spring)}
+.under{position:absolute;inset:0;border-radius:16px;display:flex;justify-content:space-between;align-items:center;padding:0 18px;font-weight:600;font-size:14px;color:var(--mute)}
+.jarw{display:flex;align-items:flex-end;gap:24px}
+.jar{position:relative;width:110px;height:130px;border:3px solid var(--ink);border-top-width:0;border-radius:0 0 36px 36px;overflow:hidden}
+.jar::before{content:"";position:absolute;top:0;left:-3px;right:-3px;height:10px;background:var(--ink);border-radius:4px}
+.lvl{position:absolute;left:0;right:0;bottom:0;height:8%;background:var(--y);transition:height .5s var(--spring)}
+.coin{position:absolute;width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffe98a,#e0a800);border:2px solid #9a7400;left:0;top:0;opacity:0;pointer-events:none}
+.jstage{position:relative;padding-top:60px}
+.saved{font-size:28px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+@media(max-width:860px){.hero,.page{grid-template-columns:minmax(0,1fr)}.obs{border-right:0;border-bottom:1.5px dashed var(--line);padding:0 0 18px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<section class="band top"><div class="wrap hero">
+  <div>
+    <h1>Small moments, observed</h1>
+    <p>Good interactions are often borrowed from objects people already know. These four come from things I see every day in India, rebuilt as payment interactions and specced so they can ship.</p>
+    <p><b>Start here:</b> the slider is a shop shutter. You pull it all the way, on purpose, and a payment can't happen by accident.</p>
+    <div class="meta"><span>Divyanshu Singh</span><a href="https://divyanshu-singh-resume-portfolio.vercel.app">Portfolio</a><a href="https://github.com/divyanshus2404">GitHub</a><a href="https://linkedin.com/in/divyanshu-singh-2404s">LinkedIn</a></div>
+    <p class="small" style="margin-top:12px">Personal concept study. Not affiliated with or endorsed by any company. Amounts are sample data.</p>
+  </div>
+  <div class="swbox">
+    <div class="small" style="color:#bbb">Pay instalment 2 of 3</div>
+    <div class="amt">₹999</div>
+    <div class="track" id="trk"><div class="fillx" id="fx"></div><div class="hint" id="hint">Slide to pay</div>
+      <button class="thumb" id="th" aria-label="Slide to pay, or press Enter"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="#121212" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+    <div class="small" style="color:#bbb;margin-top:14px">Let go before the end and it springs back. Past 85% it locks and pays.</div>
+  </div>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <h2>From the street to the screen</h2>
+  <p class="small">Left: what I noticed. Right: the interaction it became, live, with its timing.</p>
+  <div class="pages">
+    <article class="page">
+      <div class="obs"><span class="tag">Observed</span><h2>A head shake</h2><p>A quick side-to-side head shake says "no, try again" before anyone says a word. It's understood instantly and it isn't rude.</p></div>
+      <div><div class="demo"><div style="display:grid;gap:12px;justify-items:center"><div class="otp" id="otp"><input inputmode="numeric" maxlength="1" aria-label="Digit 1"><input inputmode="numeric" maxlength="1" aria-label="Digit 2"><input inputmode="numeric" maxlength="1" aria-label="Digit 3"><input inputmode="numeric" maxlength="1" aria-label="Digit 4"></div><span class="small" id="otpmsg">Try any code, then try 2580</span></div></div>
+      <dl><dt>Duration</dt><dd>420 ms, four swings that get smaller</dd><dt>Easing</dt><dd>Ease-out decay, red border for 1 s</dd><dt>Why</dt><dd>A wrong OTP shows up as a gesture first and a message second. The boxes clear and focus jumps back to the first one, so trying again takes no extra tap.</dd></dl></div>
+    </article>
+    <article class="page">
+      <div class="obs"><span class="tag">Observed</span><h2>Pushing a note aside</h2><p>At the kirana counter, a reminder chit gets nudged to the side, not thrown away. It's still there, just not now.</p></div>
+      <div><div class="demo"><div class="rem"><div class="under"><span>Snooze 1 day</span><span>Remind tonight</span></div>
+        <div class="rc" id="rc"><b>Instalment due in 3 days</b><span>₹999 for Court Runner sneakers</span></div></div></div>
+      <dl><dt>Input</dt><dd>Drag sideways, 35% of the card width to commit</dd><dt>Easing</dt><dd>350 ms fly-out; 450 ms spring back under the threshold</dd><dt>Why</dt><dd>Neither direction dismisses the reminder for good; both just push it to later. The label underneath shows what will happen before you let go.</dd></dl></div>
+    </article>
+    <article class="page">
+      <div class="obs"><span class="tag">Observed</span><h2>The gullak</h2><p>A clay piggy bank on a shelf. You can't see inside, but you hear every coin land, and that sound is the reward.</p></div>
+      <div><div class="demo"><div class="jarw"><div class="jstage" id="js"><div class="jar"><div class="lvl" id="lvl"></div></div><div class="coin" id="coin"></div></div>
+        <div><div class="small">Saved with 0% EMI</div><div class="saved" id="sv">₹0</div><button class="btn" id="coinb" style="margin-top:10px">Pay on time</button></div></div></div>
+      <dl><dt>Duration</dt><dd>550 ms coin arc, 500 ms level rise after it lands</dd><dt>Easing</dt><dd>Gravity curve on the drop, spring on the level</dd><dt>Why</dt><dd>Paying on time turns into a visible saving instead of money disappearing. The level only rises once the coin is inside, so cause and effect stay clear.</dd></dl></div>
+    </article>
+  </div>
+  <p class="small" style="margin-top:24px">Hand-built in HTML, CSS and vanilla JavaScript with pointer events, and keyboard-usable (Enter pays the slider). Motion turns off when your system asks for reduced motion.</p>
+</div></section>
+
+<script>
+{
+const $=id=>document.getElementById(id);
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+/* swipe to pay */
+const trk=$('trk'),th=$('th'),fx=$('fx'),hint=$('hint');let dragging=false,sx=0,x=0,done=false;
+const max=()=>trk.clientWidth-72;
+function set(v){x=Math.max(0,Math.min(max(),v));th.style.transform=`translateX(${x}px)`;fx.style.width=(x+72)+'px';hint.style.opacity=done?1:1-x/max()*1.4}
+function finish(){done=true;trk.classList.add('snap','ok');set(max());hint.textContent='Paid ₹999';
+  setTimeout(()=>{done=false;trk.classList.remove('ok');hint.textContent='Slide to pay';set(0);setTimeout(()=>trk.classList.remove('snap'),500)},2200)}
+th.addEventListener('pointerdown',e=>{if(done)return;dragging=true;sx=e.clientX-x;trk.classList.remove('snap');th.setPointerCapture(e.pointerId)});
+th.addEventListener('pointermove',e=>{if(dragging)set(e.clientX-sx)});
+th.addEventListener('pointerup',()=>{if(!dragging)return;dragging=false;if(x>max()*.85)finish();else{trk.classList.add('snap');set(0)}});
+th.addEventListener('keydown',e=>{if(e.key==='Enter'&&!done){e.preventDefault();finish()}});
+/* otp */
+const otp=$('otp'),ins=[...otp.querySelectorAll('input')],msg=$('otpmsg');
+ins.forEach((inp,i)=>{
+  inp.addEventListener('input',()=>{inp.value=inp.value.replace(/\D/g,'').slice(-1);if(inp.value&&i<3)ins[i+1].focus();
+    const code=ins.map(n=>n.value).join('');if(code.length===4)check(code)});
+  inp.addEventListener('keydown',e=>{if(e.key==='Backspace'&&!inp.value&&i>0)ins[i-1].focus()});
+});
+async function check(code){otp.classList.remove('bad','good');void otp.offsetWidth;
+  if(code==='2580'){otp.classList.add('good');msg.textContent='Verified';await wait(1600);otp.classList.remove('good');ins.forEach(n=>n.value='');msg.textContent='Try any code, then try 2580';return}
+  otp.classList.add('bad');msg.textContent='That code didn’t match. Try again.';await wait(500);ins.forEach(n=>n.value='');ins[0].focus();await wait(600);otp.classList.remove('bad')}
+/* reminder swipe */
+const rc=$('rc');let rd=false,rx=0,ox=0;
+rc.addEventListener('pointerdown',e=>{rd=true;ox=e.clientX;rc.className='rc';rc.setPointerCapture(e.pointerId)});
+rc.addEventListener('pointermove',e=>{if(!rd)return;rx=e.clientX-ox;rc.style.transform=`translateX(${rx}px) rotate(${rx/30}deg)`});
+rc.addEventListener('pointerup',async()=>{if(!rd)return;rd=false;const w=rc.offsetWidth;
+  if(Math.abs(rx)>w*.35){rc.className='rc fly';rc.style.transform=`translateX(${Math.sign(rx)*w*1.4}px) rotate(${Math.sign(rx)*12}deg)`;rc.style.opacity=0;
+    await wait(1400);rc.className='rc back';rc.style.transform='translateY(14px)';rc.style.opacity=1;await wait(30);rc.style.transform=''}
+  else{rc.className='rc back';rc.style.transform=''}rx=0});
+/* gullak */
+const coin=$('coin'),lvl=$('lvl'),sv=$('sv'),cb=$('coinb');let saved=0,h=8;
+cb.addEventListener('click',async()=>{cb.disabled=true;
+  const a=coin.animate([{transform:'translate(120px,0) rotate(0)',opacity:0},{transform:'translate(90px,-30px) rotate(90deg)',opacity:1,offset:.25},{transform:'translate(40px,40px) rotate(260deg)',opacity:1,offset:.85},{transform:'translate(40px,70px) rotate(300deg)',opacity:0}],{duration:matchMedia('(prefers-reduced-motion: reduce)').matches?1:550,easing:'cubic-bezier(.5,0,.9,.6)'});
+  await a.finished;h=h>=86?8:h+13;saved=h===8?0:saved+150;lvl.style.height=h+'%';sv.textContent='₹'+saved.toLocaleString('en-IN');
+  cb.textContent=h===8?'Pay on time':'Pay on time again';cb.disabled=false});
+window.addEventListener('resize',()=>{if(!done)set(0)});
+}
+</script>
+</body>
+</html>
